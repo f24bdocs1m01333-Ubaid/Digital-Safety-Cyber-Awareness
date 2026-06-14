@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSafe | Digital Safety & Cyber Awareness Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo" id="nav-logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0b0f19">
+            <path d="m480-120-330-150v-410l330-140 330 140v410L480-120Zm0-85q114-55 207-135t123-200H480v-369L210-671v331h270v205Z"/>
+          </svg>
+        </div>
+        <div class="logo-text">CYBER<span>SAFE</span></div>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="active" id="nav-user-panel">Threat Center</a>
+        <a href="admin.html" id="nav-admin-panel">Admin Operations</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main>
+    <!-- Hero Alert Banner -->
+    <section class="hero" id="portal-hero">
+      <h1>Digital Safety & Cyber Awareness</h1>
+      <p>A community-driven threat database. Report malicious activities, check phishing scams, malware alerts, and help secure our digital space by sharing active cyber threats in real-time.</p>
+    </section>
+
+    <div class="content-layout">
+      <!-- Left: Active Threats Database -->
+      <section class="database-section" id="threats-section">
+        <div class="section-header">
+          <h2 class="section-title">Active Threat Database</h2>
+        </div>
+
+        <!-- Controls: Debounced Search & Category Filter -->
+        <div class="controls-wrapper" id="controls-panel">
+          <div class="search-container">
+            <span class="search-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor">
+                <path d="M784-120 533-371q-30 24-70.5 37.5T379-320q-108 0-183.5-75.5T120-579q0-108 75.5-183.5T379-838q108 0 183.5 75.5T638-579q0 43-13.5 83.5T587-425l251 251-54 54ZM379-400q75 0 127.5-52.5T559-579q0-75-52.5-127.5T379-759q-75 0-127.5 52.5T199-579q0 75 52.5 127.5T379-400Z"/>
+              </svg>
+            </span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search threats by title or description..." autocomplete="off">
+          </div>
+          
+          <select id="category-filter" class="filter-select" aria-label="Filter by Threat Category">
+            <option value="">All Categories</option>
+            <option value="Phishing">Phishing</option>
+            <option value="Ransomware">Ransomware</option>
+            <option value="Malware">Malware</option>
+            <option value="Social Engineering">Social Engineering</option>
+            <option value="Identity Theft">Identity Theft</option>
+          </select>
+        </div>
+
+        <!-- Threats Grid Target -->
+        <div id="threats-container">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </section>
+
+      <!-- Right: Cyber Threat Reporting Form -->
+      <section class="form-section" id="report-section">
+        <div class="form-panel">
+          <h2 class="form-title">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+              <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-480H520ZM240-800v160-160 640-640Z"/>
+            </svg>
+            Report Cyber Threat
+          </h2>
+
+          <div id="form-status" style="display: none;"></div>
+
+          <form id="report-form" novalidate>
+            <!-- 1. Threat Title -->
+            <div class="form-group">
+              <label for="report-title">Threat Title / Name *</label>
+              <input type="text" id="report-title" class="form-control" placeholder="e.g. IRS Refund Phishing Email" required>
+              <span class="validation-error" id="title-error"></span>
+            </div>
+
+            <!-- 2. Category Dropdown -->
+            <div class="form-group">
+              <label for="report-category">Threat Category *</label>
+              <select id="report-category" class="form-control" required>
+                <option value="">-- Select Category --</option>
+                <option value="Phishing">Phishing</option>
+                <option value="Ransomware">Ransomware</option>
+                <option value="Malware">Malware</option>
+                <option value="Social Engineering">Social Engineering</option>
+                <option value="Identity Theft">Identity Theft</option>
+              </select>
+              <span class="validation-error" id="category-error"></span>
+            </div>
+
+            <!-- 3. Severity Level -->
+            <div class="form-group">
+              <label for="report-severity">Severity Level *</label>
+              <select id="report-severity" class="form-control" required>
+                <option value="">-- Select Severity --</option>
+                <option value="Low">Low (Minor anomaly)</option>
+                <option value="Medium">Medium (Scam attempt)</option>
+                <option value="High">High (Direct account compromise threat)</option>
+                <option value="Critical">Critical (Active data encryption or outage)</option>
+              </select>
+              <span class="validation-error" id="severity-error"></span>
+            </div>
+
+            <!-- 4. Date Spotted -->
+            <div class="form-group">
+              <label for="report-date">Date Spotted *</label>
+              <input type="date" id="report-date" class="form-control" required>
+              <span class="validation-error" id="date-error"></span>
+            </div>
+
+            <!-- 5. Detailed Description -->
+            <div class="form-group">
+              <label for="report-description">Threat Description * (min 20 characters)</label>
+              <textarea id="report-description" class="form-control" placeholder="Provide details like sender email, fake URL paths, ransom amounts, or file names..." required></textarea>
+              <span class="validation-error" id="description-error"></span>
+            </div>
+
+            <!-- 6. Reporter Name -->
+            <div class="form-group">
+              <label for="report-name">Your Name *</label>
+              <input type="text" id="report-name" class="form-control" placeholder="e.g. John Doe" required>
+              <span class="validation-error" id="name-error"></span>
+            </div>
+
+            <!-- 7. Reporter Email -->
+            <div class="form-group">
+              <label for="report-email">Your Email Address *</label>
+              <input type="email" id="report-email" class="form-control" placeholder="e.g. john.doe@email.com" required>
+              <span class="validation-error" id="email-error"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" id="btn-submit-threat">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor">
+                <path d="M440-160v-326L336-382l-56-58 200-200 200 200-56 58-104-104v326h-80ZM160-600v-120q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v120h-80v-120H240v120h-80Z"/>
+              </svg>
+              Submit Threat Alert
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>
