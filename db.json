@@ -1,0 +1,59 @@
+{
+  "threats": [
+    {
+      "id": "1",
+      "title": "Microsoft 365 Password Phishing Campaign",
+      "category": "Phishing",
+      "severity": "High",
+      "dateSpotted": "2026-06-12",
+      "description": "Users receive urgent emails claiming their password has expired, with a link to a fake login portal 'login.microsoft-secure-update.com' designed to harvest credentials.",
+      "reporterName": "Sarah Connor",
+      "reporterEmail": "sconnor@resistance.net",
+      "status": "Verified Alert"
+    },
+    {
+      "id": "2",
+      "title": "LockBit Ransomware Variant targeting local shares",
+      "category": "Ransomware",
+      "severity": "Critical",
+      "dateSpotted": "2026-06-14",
+      "description": "A ransomware strain encrypts user documents with the extension '.locky' and creates files named 'DECRYPT_INSTRUCTIONS.txt' demanding payment in BTC.",
+      "reporterName": "Miles Dyson",
+      "reporterEmail": "mdyson@cyberdyne.org",
+      "status": "Verified Alert"
+    },
+    {
+      "id": "3",
+      "title": "Fake Bank Verification Fraud via SMS",
+      "category": "Social Engineering",
+      "severity": "Medium",
+      "dateSpotted": "2026-06-11",
+      "description": "Spoofed SMS alerts pretending to be from Chase Bank claiming unauthorized transactions, prompting users to call a toll-free number where scammers request banking details.",
+      "reporterName": "John Connor",
+      "reporterEmail": "jconnor@resistance.net",
+      "status": "Under Review"
+    },
+    {
+      "id": "4",
+      "title": "Malicious PDF containing banking Trojan",
+      "category": "Malware",
+      "severity": "High",
+      "dateSpotted": "2026-06-13",
+      "description": "An email attachment named 'Invoice_June_2026.pdf' exploits a PDF reader vulnerability to silently download and execute a keystroke logger.",
+      "reporterName": "Marcus Wright",
+      "reporterEmail": "mwright@projectangel.com",
+      "status": "Verified Alert"
+    },
+    {
+      "id": "5",
+      "title": "Credential Stuffing attack on corporate intranet",
+      "category": "Identity Theft",
+      "severity": "Medium",
+      "dateSpotted": "2026-06-10",
+      "description": "Automated brute-forcing attacks using breached username/password databases trying to log into the corporate remote access portals.",
+      "reporterName": "Kate Brewster",
+      "reporterEmail": "kbrewster@resistance.net",
+      "status": "Resolved"
+    }
+  ]
+}
